@@ -231,4 +231,5 @@ MonoBehaviour:
   effect: {fileID: 2100000, guid: 94f2b5ae40b1bc8499a54194d1636d1c, type: 2}
   output: {fileID: 2100000, guid: 8e30d780ed975594da6f055d847040a2, type: 2}
   strokeLength: 600
+  brushSize: 20
   resolution: {x: 1024, y: 1024}
