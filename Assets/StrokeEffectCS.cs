@@ -19,7 +19,7 @@ public class StrokeEffectCS : MonoBehaviour
     {
         var f1 = SystemInfo.supportsComputeShaders;
 
-        rt = new PingPongRenderTexture(resolution.x, resolution.y, 0, GraphicsFormat.R32G32B32A32_SFloat);
+        rt = new PingPongRenderTexture(resolution.x, resolution.y, 0, RenderTextureFormat.ARGBFloat);
         brushData = new GraphicsBuffer(GraphicsBuffer.Target.Structured, 1, sizeof(float) * 4);
     }
 

@@ -15,7 +15,7 @@ public class StrokeEffect : MonoBehaviour
 
     void Start()
     {
-        rt = new PingPongRenderTexture(resolution.x, resolution.y, 0, GraphicsFormat.R32G32B32A32_SFloat, false);
+        rt = new PingPongRenderTexture(resolution.x, resolution.y, 0, RenderTextureFormat.ARGBFloat, false);
     }
 
     void Update()

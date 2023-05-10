@@ -1,6 +1,12 @@
 #ifndef __NOISE_INCLUDE__
 #define __NOISE_INCLUDE__
 
+float2 hash(float2 p)
+{
+    p = dot(p, float2(127.1, 311.7));
+    return frac(sin(p) * 18.5453);
+}
+
 float rand(float2 n) { 
     return frac(sin(dot(n, float2(12.9898, 4.1414))) * 43758.5453);
 }
