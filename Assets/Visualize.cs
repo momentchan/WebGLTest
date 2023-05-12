@@ -29,7 +29,7 @@ public class Visualize : MonoBehaviour
         for (var i = 0; i < count; i++)
         {
             var s = prefabs[i].transform.localScale;
-            s.y = 0.2f + strength *¡@Microphone.GetData(1024 / count * i);
+            s.y = 0.2f + strength * Microphone.GetData(1024 / count * i);
             prefabs[i].transform.localScale = s;
         }
 #endif

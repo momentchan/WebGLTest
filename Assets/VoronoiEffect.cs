@@ -11,48 +11,44 @@ public class VoronoiEffect : MonoBehaviour
 
     [SerializeField] private List<Point> points;
 
-    private GraphicsBuffer pointBuffer;
-
     private RenderTexture voronoi;
+    private Texture2D pointTex;
 
     private int w = 2048;
     private int h = 2048;
 
     private void Start()
     {
-        pointBuffer = new GraphicsBuffer(GraphicsBuffer.Target.Structured, 5, Marshal.SizeOf(typeof(PointData)));
-        voronoi = RTUtil.Create(w, h, 0, RenderTextureFormat.ARGBFloat, true, false, false, TextureWrapMode.Clamp, FilterMode.Point);
+        voronoi = RTUtil.Create(w, h, 0, RenderTextureFormat.ARGBFloat, false, false, false, TextureWrapMode.Clamp, FilterMode.Point);
+        pointTex = new Texture2D(points.Count, 2, TextureFormat.RGBAFloat, false);
+        pointTex.filterMode = FilterMode.Point;
     }
 
     private void OnRenderImage(RenderTexture source, RenderTexture destination)
     {
-        var pd = points.Select(p =>
-         new PointData()
-         {
-             pos = Camera.main.WorldToViewportPoint(p.pos.position),
-             color = p.color
-         }).ToArray();
-
-        pointBuffer.SetData(pd);
-
-        effect.SetBuffer("_PointBuffer", pointBuffer);
+        SetPointData();
         effect.SetInt("_PointCount", points.Count);
-
-
-        Graphics.Blit(null, voronoi, effect, 0);
+        effect.SetTexture("_PointTex", pointTex);
 
         effect.SetTexture("_VoronoiTex", voronoi);
+
+        Graphics.Blit(null, voronoi, effect, 0);
 
         Graphics.Blit(voronoi, destination, effect, 1);
     }
 
-    [System.Serializable]
-    public struct PointData
+    public void SetPointData()
     {
-        public Vector2 pos;
-        public Color color;
-    }
+        for (int i = 0; i < points.Count; i++)
+        {
+            var p = points[i];
+            var pos = Camera.main.WorldToViewportPoint(p.pos.position);
+            pointTex.SetPixel(i, 0, new Color(pos.x, pos.y, 0, 0));
+            pointTex.SetPixel(i, 1, p.color);
+        }
 
+        pointTex.Apply();
+    }
 
     [System.Serializable]
     public class Point

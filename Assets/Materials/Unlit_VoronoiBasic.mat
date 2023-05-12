@@ -31,8 +31,16 @@ Material:
         m_Texture: {fileID: 2800000, guid: 23900a6cc48a85c4d9420d09b537b6bb, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _PointTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ScratchLineTex:
+        m_Texture: {fileID: 2800000, guid: 344df677a812e8c49a5cd0376ae54b69, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _ScratchTex:
-        m_Texture: {fileID: 2800000, guid: 2436f5656be0c8146a66abee86673ccd, type: 3}
+        m_Texture: {fileID: 2800000, guid: 90cf4424432e246449ffe3e841e4486b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _VoronoiTex:
@@ -41,7 +49,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _DistortionStrength: 0.261
+    - _DistortionStrength: 0.654
     - _EdgeThreshold: 0.002
     - _Lacunarity: 2.04
     - _Octaves: 5.18
