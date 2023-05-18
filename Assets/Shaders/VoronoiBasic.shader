@@ -6,6 +6,8 @@ Shader "Unlit/VoronoiBasic"
         _NoiseTex ("_NoiseTex", 2D) = "white" {}
         _VoronoiTex("_VoronoiTex", 2D) = "white" {}
         _PointTex ("_PointTex", 2D) = "white" {}
+
+        _Border("Border",Range(0,1)) = 0.2
         
         _ScratchTex("_ScratchTex", 2D) = "white" {}
         _ScratchLineTex ("_ScratchLineTex", 2D) = "white" {}
@@ -39,6 +41,7 @@ Shader "Unlit/VoronoiBasic"
         int _PointCount;
         float _EdgeThreshold;
 
+        float _Border;
         float _Scale;
         int _Octaves;
         float _Lacunarity;
@@ -104,7 +107,7 @@ Shader "Unlit/VoronoiBasic"
                         }
                     }
                 }
-                return float4(cd, 1 - smoothstep(0, 0.05, e), id, id2);
+                return float4(cd, 1 - smoothstep(0, _Border, e), id, id2);
             }
 
             
@@ -127,7 +130,7 @@ Shader "Unlit/VoronoiBasic"
 
             fixed4 frag(v2f_img i) : SV_Target
             {
-	            float2 n = fbm4(i.uv*1.5, _Time.x);
+	            float2 n = fbm4(i.uv*1.5,0);
 
                 float4 d = tex2D(_MainTex, i.uv + n * _DistortionStrength);
                 
@@ -135,7 +138,7 @@ Shader "Unlit/VoronoiBasic"
                 float4 color2 = tex2D(_PointTex, float2(d.a * 1.0 / _PointCount, 0.5));
 
 
-                float4 col = d.r * lerp(color1, (color1+color2)*0.5, d.g);
+                float4 col = pow(d.r,0.5) * lerp(color1, (color1+color2)*0.5, d.g);
 
 
                 float scratch = tex2D(_ScratchTex, i.uv + n * 0)*0.3;

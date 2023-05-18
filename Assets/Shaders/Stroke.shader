@@ -47,7 +47,7 @@ Shader "Unlit/Stroke"
                     float bd = 1.0 - smoothstep(0.0, 1.0, distance(fragCoord, mPos) / _BrushSize / brushStregthRamp / 1.5  );
                     
                     bd *= smoothstep(0.1, 1.0, (noise(float2(brushStrength * 20.0, 0.0) + (fragCoord - mPos) / 2.0) + 0.0) / 5.0) * 10.0;               
-                    col += d + bd;
+                    col += d;//+ bd;
                 }
     
                 return float4(col, 1.0);
