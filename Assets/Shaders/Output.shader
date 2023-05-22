@@ -2,9 +2,7 @@ Shader "Unlit/Output"
 {
     Properties
     {
-        _Mask ("Mask", 2D) = "white" {}
-        _Color1("Color1", Color) = (0,0,0,0)
-        _Color2("Color2", Color) = (0,0,0,0)
+        _Texture("_Texture", 2D) = "white" {}
     }
     SubShader
     {
@@ -19,15 +17,14 @@ Shader "Unlit/Output"
 
             #include "UnityCG.cginc"
 
-            sampler2D _Mask;
-            float4 _Color1;
-            float4 _Color2;
+            sampler2D _Texture;
+            
 
             fixed4 frag (v2f_img i) : SV_Target
             {
-                fixed4 col = tex2D(_Mask, i.uv);
-                
-                return lerp(_Color1, _Color2, col.r);
+                fixed4 col = tex2D(_Texture, i.uv);
+            
+                return col;
             }
             ENDCG
         }
