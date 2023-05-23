@@ -11,7 +11,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Stroke.unity
     guid: 7417e7c72f7244b409d98f8736475ae2
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Voronoi.unity
     guid: d9cf68ddf284d4d498ee7264f7b5eccd
+  - enabled: 1
+    path: Assets/Scenes/ColorMix.unity
+    guid: a1162399dae560a4f9b4ee9cb30a57fa
   m_configObjects: {}

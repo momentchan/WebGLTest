@@ -2,7 +2,7 @@ Shader "Unlit/Output"
 {
     Properties
     {
-        _Texture("_Texture", 2D) = "white" {}
+        _MainTex("MainTex", 2D) = "white" {}
     }
     SubShader
     {
@@ -17,12 +17,12 @@ Shader "Unlit/Output"
 
             #include "UnityCG.cginc"
 
-            sampler2D _Texture;
+            sampler2D _MainTex;
             
 
             fixed4 frag (v2f_img i) : SV_Target
             {
-                fixed4 col = tex2D(_Texture, i.uv);
+                fixed4 col = tex2D(_MainTex, i.uv);
             
                 return col;
             }
