@@ -48,9 +48,19 @@ Material:
         m_Texture: {fileID: 2800000, guid: 2fb377046bc36dc46b6ba921f0a26e58, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_dbf0c91228224f9da1d12f7dbe28b15c_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 92616f766d726124598213ab5ee699cf, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
     - _BUILTIN_QueueControl: 0
     - _BUILTIN_QueueOffset: 0
+    - _Background: 0.5
+    - _Hightlight: 1.5
+    - _NoiseTiling: 1
+    - _Radius: 0.5
+    - _Speed: 0.05
+    - _StrokeMask: 0
     m_Colors: []
   m_BuildTextureStacks: []
