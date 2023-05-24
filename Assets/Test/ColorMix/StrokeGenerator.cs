@@ -15,6 +15,7 @@ public class StrokeGenerator : MonoBehaviour
     [SerializeField] private Vector2 endT = new Vector2(2f, 3f);
     [SerializeField] private Vector2 width = new Vector2(0.05f, 0.1f);
     [SerializeField] private Vector2 length = new Vector2(0.1f, 0.15f);
+    [SerializeField] private int maxSpawnCount = 3;
 
     public float GetStartT(float seed) => RandomUtil.RandomInRange(startT, seed);
     public float GetKeepT(float seed) => RandomUtil.RandomInRange(keepT, seed);
@@ -50,9 +51,13 @@ public class StrokeGenerator : MonoBehaviour
 
     private void SpawnStroke()
     {
-        var s = Instantiate(stroke, transform);
-        s.Setup(this);
-        strokes.Add(s);
+        var c = Random.Range(1, maxSpawnCount + 1);
+        for (var i = 0; i < c; i++)
+        {
+            var s = Instantiate(stroke, transform);
+            s.Setup(this);
+            strokes.Add(s);
+        }
     }
 
     public Texture2D GetPositionTexture()

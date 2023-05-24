@@ -73,6 +73,10 @@ PrefabInstance:
       value: Grid Variant
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d39417af197ebd342aa9af44ea082880, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d39417af197ebd342aa9af44ea082880, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -84,7 +88,7 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 7183180538023814918}
   m_SourcePrefab: {fileID: 100100000, guid: d39417af197ebd342aa9af44ea082880, type: 3}
---- !u!1 &8029532712792857175 stripped
+--- !u!1 &1450656075583563644 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d39417af197ebd342aa9af44ea082880, type: 3}
   m_PrefabInstance: {fileID: 1792623769826007597}
@@ -95,7 +99,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8029532712792857175}
+  m_GameObject: {fileID: 1450656075583563644}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ee16c1bdd8806ad4e9ae87b7b6b6600e, type: 3}

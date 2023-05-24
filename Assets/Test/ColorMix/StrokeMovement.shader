@@ -12,6 +12,7 @@ Shader "Unlit/StrokeMovement"
         LOD 100
         Blend SrcAlpha One
         ZWrite Off
+        ZTest Always
 
         Pass
         {
