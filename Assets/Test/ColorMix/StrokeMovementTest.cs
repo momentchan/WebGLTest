@@ -5,7 +5,7 @@ using UnityEngine;
 public class StrokeMovementTest : MonoBehaviour
 {
     [SerializeField] Material mat;
-    [SerializeField] private PositionBaker baker;
+    [SerializeField] private StrokeGenerator baker;
 
     void Update()
     {
