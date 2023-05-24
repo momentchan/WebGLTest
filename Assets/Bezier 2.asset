@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2461683d20cc254fbcff442da3bbd19, type: 3}
+  m_Name: Bezier 2
+  m_EditorClassIdentifier: 
+  data:
+    cps:
+    - position: {x: -0.17810717, y: -0.15739551, z: 0}
+    - position: {x: -0.38035217, y: 0.48021397, z: 0}
+    - position: {x: -0.12313013, y: -0.09849018, z: 0}
+    - position: {x: -0.038899854, y: -0.17104444, z: 0}
+    - position: {x: 0.55013824, y: -0.6028153, z: 0}
+    - position: {x: 0.08608307, y: 0.17350931, z: 0}
+    - position: {x: 0.0858376, y: 0.1735881, z: 0}
+    - position: {x: -0.22441056, y: 0.27316207, z: 0}
+    - position: {x: 0.09208396, y: -0.17032047, z: 0}
+    - position: {x: 0.102467835, y: 0.08420657, z: 0}
+    - position: {x: 0.10999243, y: 0.26864764, z: 0}
+    - position: {x: -0.32088953, y: 0.3592394, z: 0}
+    - position: {x: 0.037914984, y: 0.3859067, z: 0}
+    - position: {x: 0.28401303, y: 0.40419734, z: 0}
+    - position: {x: -0.13328129, y: -0.29871622, z: 0}
+    - position: {x: -0.17810717, y: -0.15739551, z: 0}
+    modes: 010000000000000001000000010000000100000001000000
+    bezierLength: 3.1914606
+    bezierBoundingSize: {x: 0, y: 0, z: 0}
+    bezierBoundingCenter: {x: 0, y: 0, z: 0}
+    bezierCurvesLength:
+    - 0.6844978
+    - 0.8263377
+    - 0.4507094
+    - 0.5000933
+    - 0.7298227
+    normalizeBezierPoints:
+    - 0.2144779
+    - 0.47339937
+    - 0.6146229
+    - 0.77132016
+    - 1
+    loop: 1
