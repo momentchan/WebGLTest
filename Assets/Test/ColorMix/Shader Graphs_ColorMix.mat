@@ -58,9 +58,10 @@ Material:
     - _BUILTIN_QueueOffset: 0
     - _Background: 0.5
     - _Hightlight: 1.5
-    - _NoiseTiling: 1
+    - _NoiseTiling: 0.5
     - _Radius: 0.5
-    - _Speed: 0.05
+    - _Sharpness: 0
+    - _Speed: 0.02
     - _StrokeMask: 0
     m_Colors: []
   m_BuildTextureStacks: []

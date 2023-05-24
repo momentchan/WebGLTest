@@ -5,6 +5,7 @@ Shader "Unlit/StrokeMovement"
         _MainTex ("Texture", 2D) = "white" {}
         _PositionTex("PositionTex", 2D) = "white" {}
         _T("T", float) = 0
+        _Offset("Offset", float) = 0
     }
     SubShader
     {
@@ -44,6 +45,7 @@ Shader "Unlit/StrokeMovement"
             float _FadeOut;
             float _Seed;
             float _T;
+            float _Offset;
 
             v2f vert (appdata v)
             {
@@ -57,11 +59,11 @@ Shader "Unlit/StrokeMovement"
                 float4 wpos = tex2Dlod(_PositionTex, float4(v.uv.x, 0.25, 0.0, 1.0));
 
                 // random offset
-                wpos += float4(snoise(float2(_Seed, 0.5)), snoise(float2(0.5, _Seed)), 0, 0)*_T;
+                wpos += float4(snoise(float2(_Seed, 0.5)), snoise(float2(0.5, _Seed)), 0, 0)*_Offset;
 
                 wpos += orth * lerp(-1, 1, v.uv.y) * _Width;
 
-                float noise = snoise(float2(v.uv.x*5, 0.2)) * 0.02;
+                float noise = snoise(float2(v.uv.x*5, _Time.x)) * _T;
                 noise *= smoothstep(0, 1, v.uv.x) * smoothstep(1, 0, v.uv.x);
 
                 wpos += orth * noise;
@@ -81,6 +83,7 @@ Shader "Unlit/StrokeMovement"
 
                 col.a *= smoothstep(t1 + 1, t1, i.uv.x);
                 col.a *= (1-smoothstep(t2 + 1, t2, i.uv.x));
+
                 return col;
             }
             ENDCG
