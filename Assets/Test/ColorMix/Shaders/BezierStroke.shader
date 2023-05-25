@@ -1,4 +1,4 @@
-Shader "Unlit/InteractiveStroke"
+Shader "Unlit/BezierStroke"
 {
     Properties
     {
@@ -25,8 +25,6 @@ Shader "Unlit/InteractiveStroke"
             #include "Assets/Packages/unity-gist/Cginc/Rotation.cginc"
             #include "StrokeCommon.cginc"
 
-            float _LifeDacay;
-
             fixed4 frag (v2f i) : SV_Target
             {
                 float w = 1;
@@ -35,9 +33,9 @@ Shader "Unlit/InteractiveStroke"
                 float t2 = (_FadeOut * 2 * w) -w;
 
                 col.a *= smoothstep(t1 + 1, t1, i.uv.x);
-                //col.a *= smoothstep(0, _Ratio, i.uv.x);
+                col.a *= (1  -smoothstep(t2 + 1, t2, i.uv.x));
 
-                return col * (1 + _Strength) * _LifeDacay;
+                return col * (1 + _Strength);
             }
 
             ENDCG

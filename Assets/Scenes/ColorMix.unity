@@ -251,8 +251,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b109136482e4904e97f469be08e3645, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0.4
-  border: 0.05
+  moveSpeed: 0.8
+  border: 0
   bounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
@@ -357,7 +357,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &475070003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -666,7 +666,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1967693919
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -753,7 +753,10 @@ MonoBehaviour:
   drawer: {fileID: 295688941}
   length: {x: 0.6, y: 1}
   width: {x: 0.01, y: 0.1}
+  life: {x: 10, y: 20}
+  lifeDecay: 0.5
   smoothness: 0.5
   Segments: 200
   fadeIn: 0.2
   fadeOut: 0.5
+  currentStroke: {fileID: 0}

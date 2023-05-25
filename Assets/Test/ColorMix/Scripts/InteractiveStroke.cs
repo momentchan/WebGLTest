@@ -15,13 +15,23 @@ public class InteractiveStroke : Stroke
 
     private float length;
     private Vector3 prePos;
+    private Vector3 preNormal;
+
     private float seed;
     private float ratio => 1f * currentSegment / Segments;
 
+    private float life;
+    private float t;
     private void SetPosition(int segment)
     {
         var pos = Drawer.transform.position;
+#if UNITY_EDITOR
         var vel = (Drawer.transform.position - prePos).normalized;
+        vel = Vector3.Lerp(preNormal, vel, 0.5f);
+        preNormal = vel;
+#else
+        var vel = Drawer.Vel;
+#endif
         for (var i = segment; i < Segments; i++)
         {
             rt.SetPixel(i, 0, new Color(pos.x, pos.y, pos.z, 0));
@@ -29,6 +39,7 @@ public class InteractiveStroke : Stroke
         }
         rt.Apply();
     }
+    private float strength;
 
     public void Setup(InteractiveStrokeGenerator generator)
     {
@@ -36,6 +47,7 @@ public class InteractiveStroke : Stroke
         seed = Random.value;
 
         length = generator.GetLength(seed);
+        life = generator.GetLife(seed);
 
         rt = new Texture2D(Segments, 2, TextureFormat.RGBAFloat, false);
         rt.wrapMode = TextureWrapMode.Clamp;
@@ -49,10 +61,16 @@ public class InteractiveStroke : Stroke
 
     void Update()
     {
+        t += Time.deltaTime;
+
         block.SetFloat("_Width", generator.GetWidth(seed));
         block.SetFloat("_FadeIn", Mathf.Clamp01((ratio - generator.fadeIn) / generator.fadeIn));
-        block.SetFloat("_FadeOut", Mathf.Clamp01((ratio - generator.fadeOut) / (1-generator.fadeOut)));
-        block.SetFloat("_Strength", generator.Drawer.Speed);
+        
+        if(generator.IsCurrent(this))
+            block.SetFloat("_Strength", Mathf.Lerp(strength, generator.Drawer.Speed, 0.5f));
+
+
+        block.SetFloat("_LifeDacay", generator.GetLifeDecay(t / life));
         block.Apply();
 
         if (currentSegment < Segments)
@@ -72,5 +90,8 @@ public class InteractiveStroke : Stroke
         {
             Finished = true;
         }
+
+        if (t > life)
+            generator.Remove(this);
     }
 }
