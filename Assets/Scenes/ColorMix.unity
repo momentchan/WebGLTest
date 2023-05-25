@@ -252,7 +252,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 0.8
-  border: 0
+  padding: 0.05
   bounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
@@ -642,8 +642,48 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8594266484492734149, guid: 26dbc84460d599c4d9ade4a89c00ccca, type: 3}
+      propertyPath: cone
+      value: 
+      objectReference: {fileID: 8328058257566441926, guid: 1b39df7d68370f240882c77cd4540c42, type: 3}
+    - target: {fileID: 8594266484492734149, guid: 26dbc84460d599c4d9ade4a89c00ccca, type: 3}
       propertyPath: count
-      value: 15
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8594266484492734149, guid: 26dbc84460d599c4d9ade4a89c00ccca, type: 3}
+      propertyPath: color2.b
+      value: 0.7075472
+      objectReference: {fileID: 0}
+    - target: {fileID: 8594266484492734149, guid: 26dbc84460d599c4d9ade4a89c00ccca, type: 3}
+      propertyPath: color2.g
+      value: 0.7075472
+      objectReference: {fileID: 0}
+    - target: {fileID: 8594266484492734149, guid: 26dbc84460d599c4d9ade4a89c00ccca, type: 3}
+      propertyPath: color2.r
+      value: 0.7075472
+      objectReference: {fileID: 0}
+    - target: {fileID: 8594266484492734149, guid: 26dbc84460d599c4d9ade4a89c00ccca, type: 3}
+      propertyPath: scaleX.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8594266484492734149, guid: 26dbc84460d599c4d9ade4a89c00ccca, type: 3}
+      propertyPath: scaleX.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8594266484492734149, guid: 26dbc84460d599c4d9ade4a89c00ccca, type: 3}
+      propertyPath: scaleY.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8594266484492734149, guid: 26dbc84460d599c4d9ade4a89c00ccca, type: 3}
+      propertyPath: scaleY.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8594266484492734149, guid: 26dbc84460d599c4d9ade4a89c00ccca, type: 3}
+      propertyPath: rotation.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 8594266484492734149, guid: 26dbc84460d599c4d9ade4a89c00ccca, type: 3}
+      propertyPath: rotation.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -720,7 +760,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2031669482
 Transform:
   m_ObjectHideFlags: 0

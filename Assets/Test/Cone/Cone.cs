@@ -5,15 +5,15 @@ using UnityEngine;
 
 public class Cone : MonoBehaviour
 {
-    private Block block;
+    protected Block block;
 
-    private ConeGenerator generator;
-    private float seed;
+    protected ConeGenerator generator;
+    protected float seed;
 
-    private float t = 0;
-    private float T;
+    protected float t = 0;
+    protected float T;
 
-    private float ratio => t / T;
+    protected float ratio => t / T;
     public void Setup(ConeGenerator generator)
     {
         block = new Block(GetComponent<MeshRenderer>());
@@ -22,21 +22,21 @@ public class Cone : MonoBehaviour
         StartCoroutine(Show());
     }
 
-    private void Reset()
+    protected virtual void Reset()
     {
         seed = UnityEngine.Random.value;
         transform.position = generator.GetRandomPosition();
         transform.rotation = Quaternion.Euler(0, 0, generator.rotation.Lerp(seed));
-        transform.transform.localScale = new Vector3(generator.scaleX.Lerp(seed),
-                                                     generator.scaleY.Lerp(seed),
-                                                     1);
-
+        
         t = 0;
         T = generator.duration.Lerp(seed);
     }
 
-    private void Update()
+    protected virtual void Update()
     {
+        transform.localScale = new Vector3(generator.scaleX.Lerp(seed),
+                                            generator.scaleY.Lerp(seed),
+                                            1);
         block.SetVector("_Shift", new Vector2(generator.shift.Lerp(seed), 0));
         block.SetVector("_Radius", new Vector2(generator.radiusMin.Lerp(seed), generator.radiusMax.Lerp(seed)));
         block.SetFloat("_DecayPower", generator.decayPower.Lerp(seed));
@@ -45,6 +45,7 @@ public class Cone : MonoBehaviour
         block.SetFloat("_Seed", seed);
         block.SetFloat("_Ratio", ratio);
         block.Apply();
+
     }
 
     IEnumerator Show()
