@@ -9,7 +9,6 @@ public class ColorMixTest : ImageEffectBase
     protected override void OnRenderImage(RenderTexture src, RenderTexture dst)
     {
         material.SetTexture("_StrokeTex", strokeTex);
-        material.SetFloat("_StrokeStrength", MicrophoneVolumeDetector.GetVolume() * 0.2f);
         base.OnRenderImage(src, dst);
     }
 }

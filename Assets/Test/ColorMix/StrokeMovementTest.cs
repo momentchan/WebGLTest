@@ -5,7 +5,7 @@ using UnityEngine;
 public class StrokeMovementTest : MonoBehaviour
 {
     [SerializeField] Material mat;
-    [SerializeField] private StrokeGenerator baker;
+    [SerializeField] private BezierStrokeGenerator baker;
 
     void Update()
     {

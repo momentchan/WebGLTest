@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class Cone : MonoBehaviour
 {
-    private Material mat;
     private Block block;
 
     private ConeGenerator generator;
@@ -27,21 +26,21 @@ public class Cone : MonoBehaviour
     {
         seed = UnityEngine.Random.value;
         transform.position = generator.GetRandomPosition();
-        transform.rotation = Quaternion.Euler(0, 0, RandomUtil.RandomInRange(generator.rotation, seed));
-        transform.transform.localScale = new Vector3(RandomUtil.RandomInRange(generator.scaleX, seed),
-                                                     RandomUtil.RandomInRange(generator.scaleY, seed),
+        transform.rotation = Quaternion.Euler(0, 0, generator.rotation.Lerp(seed));
+        transform.transform.localScale = new Vector3(generator.scaleX.Lerp(seed),
+                                                     generator.scaleY.Lerp(seed),
                                                      1);
 
         t = 0;
-        T = RandomUtil.RandomInRange(generator.duration, seed);
+        T = generator.duration.Lerp(seed);
     }
 
     private void Update()
     {
-        block.SetVector("_Shift", new Vector2(RandomUtil.RandomInRange(generator.shift, seed), 0));
-        block.SetVector("_Radius", new Vector2(RandomUtil.RandomInRange(generator.radiusMin, seed), RandomUtil.RandomInRange(generator.radiusMax, seed)));
-        block.SetFloat("_DecayPower", RandomUtil.RandomInRange(generator.decayPower, seed));
-        block.SetFloat("_Frequency", RandomUtil.RandomInRange(generator.frequency, seed));
+        block.SetVector("_Shift", new Vector2(generator.shift.Lerp(seed), 0));
+        block.SetVector("_Radius", new Vector2(generator.radiusMin.Lerp(seed), generator.radiusMax.Lerp(seed)));
+        block.SetFloat("_DecayPower", generator.decayPower.Lerp(seed));
+        block.SetFloat("_Frequency", generator.frequency.Lerp(seed));
         block.SetColor("_Color", Color.Lerp(generator.color1, generator.color2, seed));
         block.SetFloat("_Seed", seed);
         block.SetFloat("_Ratio", ratio);

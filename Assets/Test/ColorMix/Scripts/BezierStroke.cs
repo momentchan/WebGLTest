@@ -2,12 +2,10 @@ using System.Collections;
 using mj.gist;
 using UnityEngine;
 
-public class Stroke : MonoBehaviour
+public class BezierStroke : Stroke
 {
-    private Texture2D rt;
-    private StrokeGenerator generator;
+    private BezierStrokeGenerator generator;
 
-    private Block block;
     private float seed;
 
     private float life => startT + keepT + endT;
@@ -15,7 +13,7 @@ public class Stroke : MonoBehaviour
     private float keepT;
     private float endT;
 
-    public void Setup(StrokeGenerator generator)
+    public void Setup(BezierStrokeGenerator generator)
     {
         this.generator = generator;
         seed = Random.value;

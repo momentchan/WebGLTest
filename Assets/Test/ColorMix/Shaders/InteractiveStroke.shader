@@ -1,4 +1,4 @@
-Shader "Unlit/StrokeMovement"
+Shader "Unlit/InteractiveStroke"
 {
     Properties
     {
@@ -11,7 +11,7 @@ Shader "Unlit/StrokeMovement"
     {
         Tags { "RenderType"="Opaque" "Queue"="Transparent" }
         LOD 100
-        Blend SrcAlpha One
+        Blend SrcAlpha OneMinusSrcAlpha
         ZWrite Off
         ZTest Always
 
@@ -58,15 +58,8 @@ Shader "Unlit/StrokeMovement"
 
                 float4 wpos = tex2Dlod(_PositionTex, float4(v.uv.x, 0.25, 0.0, 1.0));
 
-                // random offset
-                wpos += float4(snoise(float2(_Seed, 0.5)), snoise(float2(0.5, _Seed)), 0, 0)*_Offset;
-
                 wpos += orth * lerp(-1, 1, v.uv.y) * _Width;
 
-                float noise = snoise(float2(v.uv.x*5, _Time.x)) * _T;
-                noise *= smoothstep(0, 1, v.uv.x) * smoothstep(1, 0, v.uv.x);
-
-                wpos += orth * noise;
 
                 float4 lpos = mul(unity_WorldToObject, wpos);
                 o.vertex = UnityObjectToClipPos(lpos);
@@ -83,7 +76,6 @@ Shader "Unlit/StrokeMovement"
 
                 col.a *= smoothstep(t1 + 1, t1, i.uv.x);
                 col.a *= (1-smoothstep(t2 + 1, t2, i.uv.x));
-
                 return col;
             }
             ENDCG

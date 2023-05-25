@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: d39417af197ebd342aa9af44ea082880, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d39417af197ebd342aa9af44ea082880, type: 3}
       propertyPath: m_LocalScale.x
@@ -70,7 +70,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: e72e69d31d1a5474f8704f564ea85beb, type: 2}
     - target: {fileID: 919132149155446097, guid: d39417af197ebd342aa9af44ea082880, type: 3}
       propertyPath: m_Name
-      value: Grid Variant
+      value: Stroke
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d39417af197ebd342aa9af44ea082880, type: 3}
       propertyPath: m_Layer
@@ -86,14 +86,14 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d39417af197ebd342aa9af44ea082880, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 7183180538023814918}
+      addedObject: {fileID: 6523540674341229051}
   m_SourcePrefab: {fileID: 100100000, guid: d39417af197ebd342aa9af44ea082880, type: 3}
 --- !u!1 &1450656075583563644 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d39417af197ebd342aa9af44ea082880, type: 3}
   m_PrefabInstance: {fileID: 1792623769826007597}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7183180538023814918
+--- !u!114 &6523540674341229051
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using BezierTools;
 using UnityEngine;
 
-public class StrokeGenerator : MonoBehaviour
+public class BezierStrokeGenerator : StrokeGenerator
 {
     [SerializeField] Bezier bezier;
-    [SerializeField] private Stroke stroke;
+    [SerializeField] private BezierStroke stroke;
     [SerializeField] private float speed = 0.1f;
 
     [SerializeField] private Vector2 spawnT = new Vector2(3f, 5f);
@@ -17,13 +17,12 @@ public class StrokeGenerator : MonoBehaviour
     [SerializeField] private Vector2 length = new Vector2(0.1f, 0.15f);
     [SerializeField] private int maxSpawnCount = 3;
 
-    public float GetStartT(float seed) => RandomUtil.RandomInRange(startT, seed);
-    public float GetKeepT(float seed) => RandomUtil.RandomInRange(keepT, seed);
-    public float GetEndT(float seed) => RandomUtil.RandomInRange(endT, seed);
-    public float GetWidth(float seed) => RandomUtil.RandomInRange(width, seed);
-
+    public float GetStartT(float seed) => startT.Lerp(seed);
+    public float GetKeepT(float seed) => keepT.Lerp(seed);
+    public float GetEndT(float seed) => endT.Lerp(seed);
+    public float GetWidth(float seed) => width.Lerp(seed);
     private readonly int sampleCount = 100;
-    private List<Stroke> strokes = new List<Stroke>();
+    private List<BezierStroke> strokes = new List<BezierStroke>();
     private float t;
 
     private void Start()
@@ -79,7 +78,7 @@ public class StrokeGenerator : MonoBehaviour
         return rt;
     }
 
-    public void Remove(Stroke s)
+    public void Remove(BezierStroke s)
     {
         strokes.Remove(s);
         Destroy(s.gameObject);
