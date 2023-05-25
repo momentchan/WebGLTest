@@ -40,7 +40,7 @@ public class BezierStrokeGenerator : StrokeGenerator
 
     IEnumerator Spawn()
     {
-        yield return null;
+        yield return new WaitForSeconds(Random.Range(0, 3f));
         while (true)
         {
             SpawnStroke();

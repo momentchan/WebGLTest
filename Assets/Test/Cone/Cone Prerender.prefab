@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textures:
-  - {fileID: 18700000, guid: e8170460cc3f4f14090a9118a4831dd5, type: 2}
-  - {fileID: 18700000, guid: 0344d7b142736a943bfa37e481f1016c, type: 2}
-  frames: 390
+  - {fileID: 18700000, guid: 9a2d7fad4191c6a47b38b62c683bb579, type: 2}
+  - {fileID: 18700000, guid: 9302260de9cfe0e43b8a3ee89062fae2, type: 2}
+  frames: 195
   spotRatio: 0.5
