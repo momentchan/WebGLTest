@@ -20,7 +20,7 @@ public abstract class StripeControllerBase : MonoBehaviour
     protected List<StripeBase> stripes = new List<StripeBase>();
 
 
-    public abstract Vector3 GetPosition(int id, int type);
+    public abstract Vector3 GetPosition(StripeBase s);
 
     private float[] CDF;
 

@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_ColorStripeMiddle
+  m_Name: Shader Graphs_ColorStripeBlue
   m_Shader: {fileID: -6465566751694194690, guid: c4292fd2cb196c64a9411ff25c10814d, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -54,7 +54,7 @@ Material:
     - _BUILTIN_QueueControl: 0
     - _BUILTIN_QueueOffset: 0
     - _BlendRatio: 1
-    - _BottomFade: 0.599
+    - _BottomFade: 0.652
     - _DistortionStrength: 1.6
     - _HoleSmooth: 0.77
     - _Seed: 0
@@ -64,11 +64,11 @@ Material:
     - _BlendColor: {r: 0, g: 0, b: 0, a: 0}
     - _HSV: {r: 0, g: 0.88, b: 0.1, a: 0}
     - _HoleTiling: {r: 5, g: 200, b: 0, a: 0}
-    - _Hue: {r: 0, g: 0.52, b: 0, a: 0}
+    - _Hue: {r: 0.6, g: 0.65, b: 0, a: 0}
     - _HueNoiseTiling: {r: 1, g: 5, b: 0, a: 0}
     - _PaperTiling: {r: 0.01, g: 0.88, b: 0, a: 0}
     - _Saturation: {r: 0.8, g: 0.9, b: 0, a: 0}
     - _Tiling: {r: 0.01, g: 4, b: 0, a: 0}
-    - _Value: {r: 0.35, g: 0.5, b: 0, a: 0}
+    - _Value: {r: 0.05, g: 0.3, b: 0, a: 0}
     - _ValueNoiseTiling: {r: 1, g: 5, b: 0, a: 0}
   m_BuildTextureStacks: []

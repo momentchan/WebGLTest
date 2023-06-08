@@ -6,9 +6,9 @@ public class StripeBase : MonoBehaviour
     protected Block block;
     protected StripeControllerBase controller;
 
-    protected float seed;
-    protected int id;
-    protected int type;
+    public float seed;
+    public int id;
+    public int type;
 
     internal void Setup(StripeControllerBase controller, int id, int type, Material mat)
     {
@@ -25,11 +25,11 @@ public class StripeBase : MonoBehaviour
         block.SetFloat("_Seed", Random.value);
         block.Apply();
     }
-    void Update()
+    protected virtual void Update()
     {
         transform.localScale = controller.GetScale(seed, type);
 
-        var p = controller.GetPosition(id, type);
+        var p = controller.GetPosition(this);
         p += Vector3.up * (-transform.localScale.y * 0.5f + controller.RandomOffset(type) * seed);
         transform.localPosition = p;
     }

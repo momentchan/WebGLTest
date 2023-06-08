@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class BackgroundStripeController : StripeControllerBase
 {
-    public override Vector3 GetPosition(int id, int type)
+    public override Vector3 GetPosition(StripeBase s)
     {
-        var ratio = id * 1f / (count - 1);
-        var p = Vector3.Lerp(left(type), right(type), ratio);
+        var ratio = s.id * 1f / (count - 1);
+        var p = Vector3.Lerp(left(s.type), right(s.type), ratio);
         return p;
     }
 }
