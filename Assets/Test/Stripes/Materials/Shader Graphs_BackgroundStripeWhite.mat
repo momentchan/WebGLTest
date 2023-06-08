@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_Stripe
+  m_Name: Shader Graphs_BackgroundStripeWhite
   m_Shader: {fileID: -6465566751694194690, guid: c4292fd2cb196c64a9411ff25c10814d, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -44,18 +44,31 @@ Material:
         m_Texture: {fileID: 2800000, guid: 344df677a812e8c49a5cd0376ae54b69, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_a90c6725177b443f8157aaaeb9169bdb_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 90cf4424432e246449ffe3e841e4486b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _Alpha: 0.07
     - _BUILTIN_QueueControl: 0
     - _BUILTIN_QueueOffset: 0
-    - _DistortionStrength: 2
+    - _BlendRatio: 1
+    - _BottomFade: 0
+    - _DistortionStrength: 7.15
     - _HoleSmooth: 0.77
     - _Seed: 0
-    - _Speed: 0.1
+    - _Speed: 0
+    - _VaueNoiseScale: -0.02
     m_Colors:
-    - _HSV: {r: 0, g: 1, b: 0.1, a: 0}
+    - _BlendColor: {r: 0, g: 0, b: 0, a: 0}
+    - _HSV: {r: 0, g: 0.9, b: 0.6, a: 0}
     - _HoleTiling: {r: 5, g: 200, b: 0, a: 0}
-    - _Hue: {r: 0, g: 1, b: 0, a: 0}
-    - _HueNoiseTiling: {r: 1, g: 5, b: 0, a: 0}
+    - _Hue: {r: 0.3, g: 0.6, b: 0, a: 0}
+    - _HueNoiseTiling: {r: 1, g: 15, b: 0, a: 0}
+    - _PaperTiling: {r: 1, g: 1, b: 0, a: 0}
+    - _Saturation: {r: 0, g: 0.5, b: 0, a: 0}
     - _Tiling: {r: 0.01, g: 1, b: 0, a: 0}
+    - _Value: {r: 0.8, g: 1.5, b: 0, a: 0}
+    - _ValueNoiseTiling: {r: 5, g: 313.7, b: 0, a: 0}
   m_BuildTextureStacks: []

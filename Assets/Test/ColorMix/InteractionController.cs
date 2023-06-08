@@ -7,12 +7,15 @@ public class InteractionController : MonoBehaviour
     [SerializeField] private bool showGUI = true;
 
     private GUIStyle style;
+
+    private bool supportGyro => SystemInfo.supportsGyroscope;
     void Start()
     {
         style = new GUIStyle();
-        Input.gyro.enabled = true;
         style.fontSize = 60;
         style.normal.textColor = Color.white;
+
+        Input.gyro.enabled = supportGyro;
     }
 
     private void OnGUI()
@@ -20,8 +23,11 @@ public class InteractionController : MonoBehaviour
         if (!showGUI) return;
 
         GUILayout.BeginVertical();
-        GUILayout.Label($"Angle: {Input.gyro.attitude.eulerAngles}", style);
-        GUILayout.Label($"Acceleration: {Input.gyro.userAcceleration}", style);
+        if (supportGyro)
+        {
+            GUILayout.Label($"Angle: {Input.gyro.attitude.eulerAngles}", style);
+            GUILayout.Label($"Acceleration: {Input.gyro.userAcceleration}", style);
+        }
         GUILayout.Label($"Volume: {MicrophoneVolumeDetector.GetVolume()}", style);
         GUILayout.EndVertical();
     }

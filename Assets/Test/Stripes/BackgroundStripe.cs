@@ -1,18 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
+using mj.gist;
 using UnityEngine;
 
-public class BackgroundStripe : MonoBehaviour
+public class BackgroundStripe : StripeBase
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
