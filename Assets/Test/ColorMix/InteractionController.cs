@@ -1,14 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using mj.gist;
 using UnityEngine;
 
-public class InteractionController : MonoBehaviour
+public class InteractionController : SingletonMonoBehaviour<InteractionController>
 {
     [SerializeField] private bool showGUI = true;
 
     private GUIStyle style;
 
     private bool supportGyro => SystemInfo.supportsGyroscope;
+    public Vector2 GyroAngle => Input.gyro.attitude.eulerAngles;
+
+
+    
     void Start()
     {
         style = new GUIStyle();
