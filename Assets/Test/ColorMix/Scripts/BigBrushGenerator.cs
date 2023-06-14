@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class BigBrushGenerator : MonoBehaviour
 {
-    [SerializeField] private List<BigBrush> brushes;
+    [SerializeField] private BigBrush prefab;
 
     void Update()
     {
