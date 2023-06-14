@@ -49,6 +49,7 @@ v2f vert (appdata v)
     float4 lpos = mul(unity_WorldToObject, wpos);
     o.vertex = UnityObjectToClipPos(lpos);
     o.uv = TRANSFORM_TEX(v.uv, _MainTex);
+    
     return o;
 }
 

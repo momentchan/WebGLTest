@@ -1,6 +1,7 @@
 using mj.gist;
 using Unity.VisualScripting;
 using UnityEngine;
+using Unity.Mathematics;
 
 public class DynamicStroke : Stroke
 {
@@ -12,7 +13,7 @@ public class DynamicStroke : Stroke
     private DynamicStrokeGroup generator;
 
     private float length;
-    private Vector3 prePos;
+    private float3 prePos;
     private Vector3 preNormal;
 
     private float seed;
@@ -22,22 +23,20 @@ public class DynamicStroke : Stroke
     private float t;
     private float speed;
 
-    private Vector3 currentPos;
+    private float3 currentPos;
 
-    private Vector3 start, end;
-    private Vector3 dir => (end - start).normalized;
+    private float3 start, end;
+    private float3 dir => math.normalizesafe(end - start);
 
 
     private void SetPosition(int segment)
     {
+
         var pos = currentPos;
-#if UNITY_EDITOR
-        var vel = (currentPos - prePos).normalized;
+        var vel = math.normalizesafe(currentPos - prePos);
         vel = Vector3.Lerp(preNormal, vel, 0.5f);
         preNormal = vel;
-#else
-        var vel = Drawer.Vel;
-#endif
+
         for (var i = segment; i < Segments; i++)
         {
             rt.SetPixel(i, 0, new Color(pos.x, pos.y, pos.z, 0));
@@ -49,7 +48,7 @@ public class DynamicStroke : Stroke
     public void Setup(DynamicStrokeGroup generator)
     {
         this.generator = generator;
-        seed = Random.value;
+        seed = UnityEngine.Random.value;
 
         (start, end) = generator.GetStartEndPoints();
 
@@ -59,6 +58,7 @@ public class DynamicStroke : Stroke
 
         rt = new Texture2D(Segments, 2, TextureFormat.RGBAFloat, false);
         rt.wrapMode = TextureWrapMode.Clamp;
+        rt.filterMode = FilterMode.Point;
 
         currentPos = start;
         prePos = start;
@@ -71,14 +71,19 @@ public class DynamicStroke : Stroke
 
     void Update()
     {
+
+        t += Time.deltaTime;
+
         block.SetFloat("_Width", generator.GetWidth(seed));
         block.SetFloat("_FadeIn", Mathf.Clamp01((ratio - generator.fadeIn) / generator.fadeIn));
-
+        block.SetFloat("_Ratio", Mathf.Clamp01((float)currentSegment / Segments));
         block.SetFloat("_LifeDacay", generator.GetLifeDecay(t / life));
         block.SetFloat("_NoiseFrequency", generator.GetNoiseFrequency(seed) * length);
         block.Apply();
 
-        currentPos += dir * Time.deltaTime * speed;
+
+        var d = math.normalize(dir + noise.srdnoise(currentPos.xy * generator.positionNoiseFrequency) * generator.positionNoiseScale);
+        currentPos += d * Time.deltaTime * speed;
 
         if (currentSegment < Segments)
         {
@@ -95,6 +100,10 @@ public class DynamicStroke : Stroke
         }
 
         if (t > life)
+        {
+            Destroy(rt);
+            rt = null;
             generator.Remove(this);
+        }
     }
 }

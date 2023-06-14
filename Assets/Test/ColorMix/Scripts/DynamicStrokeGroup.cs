@@ -18,6 +18,9 @@ public class DynamicStrokeGroup : StrokeGenerator
     [SerializeField] private Vector2 strokeCount = new Vector2(3, 10);
     [SerializeField] private float offsetRange = 0.05f;
 
+    [SerializeField] public float positionNoiseScale = 1;
+    [SerializeField] public float positionNoiseFrequency = 1;
+
     private Vector3 startViewPos, endViewPos;
     private Vector3 StartWorldPos => Camera.main.ViewportToWorldPoint(startViewPos);
     private Vector3 EndWorldPos => Camera.main.ViewportToWorldPoint(endViewPos);
@@ -74,6 +77,7 @@ public class DynamicStrokeGroup : StrokeGenerator
     public void Remove(DynamicStroke s)
     {
         strokes.Remove(s);
+
         Destroy(s.gameObject);
     }
 

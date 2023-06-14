@@ -26,17 +26,17 @@ Shader "Unlit/InteractiveStroke"
             #include "StrokeCommon.cginc"
 
             float _LifeDacay;
+            float _Ratio;
 
             fixed4 frag (v2f i) : SV_Target
             {
                 float w = 1;
                 fixed4 col = tex2D(_MainTex, i.uv).a;
                 float t1 = (_FadeIn * 2 * w) -w;
-                float t2 = (_FadeOut * 2 * w) -w;
+    
 
                 col.a *= smoothstep(t1 + 1, t1, i.uv.x);
-                //col.a *= smoothstep(0, _Ratio, i.uv.x);
-
+                
                 return col * (1 + _Strength) * _LifeDacay;
             }
 
