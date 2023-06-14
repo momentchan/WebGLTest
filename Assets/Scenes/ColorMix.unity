@@ -673,17 +673,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 2031669481}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97bb3b925f3ba6c4795ccf0a88a01767, type: 3}
+  m_Script: {fileID: 11500000, guid: 3a2ff3ea6b188494ab1489bd1eb71086, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stroke: {fileID: 931967935158381044, guid: 831316f5eade04741a1a491c76b42feb, type: 3}
-  drawer: {fileID: 295688941}
-  length: {x: 0.6, y: 1}
-  width: {x: 0.01, y: 0.1}
-  life: {x: 10, y: 20}
-  lifeDecay: 0.5
+  stroke: {fileID: 0}
+  drawer: {fileID: 0}
+  length: {x: 0.2, y: 0.5}
+  width: {x: 0.03, y: 0.1}
+  life: {x: 3, y: 10}
+  lifeDecay: 0.8
   smoothness: 0.5
   Segments: 200
   fadeIn: 0.2
-  fadeOut: 0.5
-  currentStroke: {fileID: 0}
+  fadeOut: 0.8

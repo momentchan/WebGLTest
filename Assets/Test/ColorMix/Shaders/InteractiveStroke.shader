@@ -18,7 +18,7 @@ Shader "Unlit/InteractiveStroke"
         Pass
         {
             CGPROGRAM
-            #pragma vertex vert
+            #pragma vertex vert_dynamic
             #pragma fragment frag
             #include "UnityCG.cginc"
             #include "Assets/Packages/unity-gist/Cginc/Noise.cginc"

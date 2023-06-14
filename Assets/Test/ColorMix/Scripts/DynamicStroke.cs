@@ -1,17 +1,15 @@
 using mj.gist;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class InteractiveStroke : Stroke
+public class DynamicStroke : Stroke
 {
     private int Segments => generator.Segments;
 
     public float displace = 0;
 
     [SerializeField] private int currentSegment = -1;
-    private InteractiveStrokeGenerator generator;
-
-    private Drawer Drawer => generator.Drawer;
-    public bool Finished { get; internal set; } = false;
+    private DynamicStrokeGroup generator;
 
     private float length;
     private Vector3 prePos;
@@ -22,11 +20,19 @@ public class InteractiveStroke : Stroke
 
     private float life;
     private float t;
+    private float speed;
+
+    private Vector3 currentPos;
+
+    private Vector3 start, end;
+    private Vector3 dir => (end - start).normalized;
+
+
     private void SetPosition(int segment)
     {
-        var pos = Drawer.transform.position;
+        var pos = currentPos;
 #if UNITY_EDITOR
-        var vel = (Drawer.transform.position - prePos).normalized;
+        var vel = (currentPos - prePos).normalized;
         vel = Vector3.Lerp(preNormal, vel, 0.5f);
         preNormal = vel;
 #else
@@ -39,20 +45,24 @@ public class InteractiveStroke : Stroke
         }
         rt.Apply();
     }
-    private float strength;
 
-    public void Setup(InteractiveStrokeGenerator generator)
+    public void Setup(DynamicStrokeGroup generator)
     {
         this.generator = generator;
         seed = Random.value;
 
-        length = generator.GetLength(seed);
+        (start, end) = generator.GetStartEndPoints();
+
+        length = Vector3.Distance(start, end);
         life = generator.GetLife(seed);
+        speed = generator.GetSpeed(seed);
 
         rt = new Texture2D(Segments, 2, TextureFormat.RGBAFloat, false);
         rt.wrapMode = TextureWrapMode.Clamp;
 
-        prePos = Drawer.transform.position;
+        currentPos = start;
+        prePos = start;
+        SetPosition(0);
 
         block = new Block(GetComponent<MeshRenderer>());
         block.SetTexture("_PositionTex", rt);
@@ -61,21 +71,18 @@ public class InteractiveStroke : Stroke
 
     void Update()
     {
-        t += Time.deltaTime;
-
         block.SetFloat("_Width", generator.GetWidth(seed));
         block.SetFloat("_FadeIn", Mathf.Clamp01((ratio - generator.fadeIn) / generator.fadeIn));
-        
-        if(generator.IsCurrent(this))
-            block.SetFloat("_Strength", Mathf.Lerp(strength, generator.Drawer.Speed, 0.5f));
-
 
         block.SetFloat("_LifeDacay", generator.GetLifeDecay(t / life));
+        block.SetFloat("_NoiseFrequency", generator.GetNoiseFrequency(seed) * length);
         block.Apply();
+
+        currentPos += dir * Time.deltaTime * speed;
 
         if (currentSegment < Segments)
         {
-            displace += Vector3.Distance(Drawer.transform.position, prePos);
+            displace += Vector3.Distance(currentPos, prePos);
 
             var segment = Mathf.FloorToInt((displace / length) * Segments);
 
@@ -84,11 +91,7 @@ public class InteractiveStroke : Stroke
 
             currentSegment = segment;
 
-            prePos = Drawer.transform.position;
-        }
-        else
-        {
-            Finished = true;
+            prePos = currentPos;
         }
 
         if (t > life)
