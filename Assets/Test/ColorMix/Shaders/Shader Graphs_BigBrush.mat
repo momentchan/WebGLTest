@@ -36,6 +36,10 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _SampleTexture2D_2bb233101a334380a765d63cd7daaa3c_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 02ad36678b5b11c41953730d7af7a78a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_c2be29749ef542ec854bcb7939bdf3e9_Texture_1_Texture2D:
         m_Texture: {fileID: 2800000, guid: 90cf4424432e246449ffe3e841e4486b, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -47,10 +51,13 @@ Material:
     - _Count: 800
     - _DistortionFrequency: 0.6
     - _DistortionIntensity: 2.33
+    - _Fade: 0.1
     - _Height: 1
-    - _Ratio: 6.45
+    - _Life: 0
+    - _Ratio: 2.18
     - _Strength: 0.05
-    - _Width: 0.005
+    - _Time: 0
+    - _Width: 0.01
     m_Colors:
-    - _EdgeFade: {r: 0.17, g: 0.12, b: 0, a: 0}
+    - _EdgeFade: {r: 0.27, g: 0.33, b: 0, a: 0}
   m_BuildTextureStacks: []

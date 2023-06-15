@@ -20,7 +20,7 @@ void DrawBigBrush_float(float2 UV, float2 Center, float Count, float Width, floa
         float w = lerp(0.5, 1.5, size.x) * Width;
         float h = lerp(0.3, 1, size.y) * Height;
         
-        float delay = -lerp(0, 0.5, frac(n * 32.5));
+        float delay = -lerp(0, 0.2, frac(n * 32.5));
         float speed = lerp(0.6, 1, frac(n * 69.3));
         
         
