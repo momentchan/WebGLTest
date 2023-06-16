@@ -16,7 +16,7 @@ public class DynamicStroke : Stroke
     private float displace = 0;
     private int currentSegment = -1;
     private float3 prePos;
-    private float3 preNormal;
+    private float3 preVel;
     private float3 currentPos;
 
     private float3 start, end;
@@ -30,8 +30,23 @@ public class DynamicStroke : Stroke
     {
         var pos = currentPos;
         var vel = math.normalizesafe(currentPos - prePos);
-        vel = Vector3.Lerp(preNormal, vel, 0.5f);
-        preNormal = vel;
+
+        for (var i = currentSegment; i < segment; i++)
+        {
+            if (currentSegment != -1)
+            {
+
+            }
+            var r = 1f * (i-currentSegment) / (segment - currentSegment);
+            var p = math.lerp(prePos, currentPos, r);
+            var v = math.lerp(preVel, vel, r);
+
+            rt.SetPixel(i, 0, new Color(p.x, p.y, p.z, 0));
+            rt.SetPixel(i, 1, new Color(v.x, v.y, v.z, 0));
+        }
+        
+        vel = Vector3.Lerp(preVel, vel, 0.5f);
+        preVel = vel;
 
         for (var i = segment; i < Segments; i++)
         {
@@ -64,11 +79,10 @@ public class DynamicStroke : Stroke
         block.SetTexture("_PositionTex", rt);
         block.Apply();
 
-        StartCoroutine(Work());
+        StartCoroutine(Draw());
     }
 
-
-    private IEnumerator Work()
+    private IEnumerator Draw()
     {
         yield return new WaitForSeconds(UnityEngine.Random.Range(0, 1f));
 
@@ -83,6 +97,7 @@ public class DynamicStroke : Stroke
             block.SetFloat("_Ratio", Mathf.Clamp01((float)currentSegment / Segments));
             block.SetFloat("_LifeDacay", generator.GetLifeDecay(t / lifetime));
             block.SetFloat("_NoiseFrequency", generator.GetNoiseFrequency(seed) * length);
+            block.SetFloat("_Strength", generator.GetStrength(seed));
             block.Apply();
 
             var d = math.normalize(dir + noise.srdnoise(currentPos.xy * generator.positionNoiseFrequency) * generator.positionNoiseScale);

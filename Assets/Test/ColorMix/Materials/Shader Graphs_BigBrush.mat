@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_BigBrush 1
+  m_Name: Shader Graphs_BigBrush
   m_Shader: {fileID: -6465566751694194690, guid: afff29f46e458b446a5632fc611ca6f7, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -36,6 +36,10 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _ColotTex:
+        m_Texture: {fileID: 2800000, guid: a1549f993956f6247b26bd6bacd5fcdc, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_2bb233101a334380a765d63cd7daaa3c_Texture_1_Texture2D:
         m_Texture: {fileID: 2800000, guid: 02ad36678b5b11c41953730d7af7a78a, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -48,15 +52,19 @@ Material:
     m_Floats:
     - _BUILTIN_QueueControl: 0
     - _BUILTIN_QueueOffset: 0
-    - _Count: 200
-    - _DistortionFrequency: 0.73
-    - _DistortionIntensity: 2.83
+    - _ColorStrength: 3.08
+    - _Count: 800
+    - _DistortionFrequency: 0.89
+    - _DistortionIntensity: 8.54
+    - _DrawRatio: 0
+    - _Fade: 0.1
     - _Height: 1
+    - _Hue: -29.8
     - _Life: 0
-    - _Ratio: 3.88
-    - _Strength: 0.015
+    - _Ratio: 2.18
+    - _Strength: 0.05
     - _Time: 0
-    - _Width: 0.2
+    - _Width: 0.01
     m_Colors:
-    - _EdgeFade: {r: 0.13, g: 0.12, b: 0, a: 0}
+    - _EdgeFade: {r: 0.27, g: 0.33, b: 0, a: 0}
   m_BuildTextureStacks: []

@@ -168,18 +168,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stroke: {fileID: 931967935158381044, guid: 831316f5eade04741a1a491c76b42feb, type: 3}
-  length: {x: 0.3, y: 0.6}
-  width: {x: 0.002, y: 0.005}
-  life: {x: 3, y: 10}
+  offset: 0.05
+  strokeCount: {x: 3, y: 10}
+  spawnDuration: {x: 1, y: 6}
   lifeDecay: 0.8
+  life: {x: 3, y: 10}
+  positionNoiseScale: 1
+  positionNoiseFrequency: 1
   speed: {x: 0.02, y: 0.1}
   noiseFrequency: {x: 20, y: 40}
-  strokeCount: {x: 3, y: 10}
-  offsetRange: 0.05
-  smoothness: 0.5
-  Segments: 150
+  segments: 200
   fadeIn: 0.2
-  fadeOut: 0.8
+  length: {x: 0.3, y: 0.6}
+  width: {x: 0.002, y: 0.005}
 --- !u!1 &806737834
 GameObject:
   m_ObjectHideFlags: 0
@@ -190,6 +191,7 @@ GameObject:
   m_Component:
   - component: {fileID: 806737837}
   - component: {fileID: 806737836}
+  - component: {fileID: 806737838}
   m_Layer: 0
   m_Name: Camera
   m_TagString: MainCamera
@@ -263,3 +265,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &806737838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 806737834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56dfdfb2c0af0b41b54dd00120e28b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  focusPosition: {x: 0, y: 0, z: 1}
+  angleRange: {x: 30, y: 20}
+  offset: {x: 1, y: 1}
+  testAngle: {x: 0, y: 270}

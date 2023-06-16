@@ -7,9 +7,9 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ColorMixOutput
-  m_Shader: {fileID: -6465566751694194690, guid: f04e9cd706458c2439766eb1503395d3, type: 3}
-  m_Parent: {fileID: 2100000, guid: ba42038713f2f0f4ca0236c2f6b7771d, type: 2}
+  m_Name: Shader Graphs_BackgroundLayer
+  m_Shader: {fileID: -6465566751694194690, guid: 72aedfa466cd7994dbf4277b37f313d9, type: 3}
+  m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -22,12 +22,28 @@ Material:
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
-    m_TexEnvs: []
+    m_TexEnvs:
+    - _BackgroundTex:
+        m_Texture: {fileID: 2800000, guid: a1549f993956f6247b26bd6bacd5fcdc, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Ints: []
-    m_Floats: []
+    m_Floats:
+    - _BUILTIN_QueueControl: 0
+    - _BUILTIN_QueueOffset: 0
+    - _FractalScale1: 2
+    - _FractalScale2: 1
+    - _FractalSpeed1: 0.1
+    - _FractalSpeed2: 0.1
+    - _Scale: 1
+    - _ScatterRadius1: 0.1
+    - _ScatterRadius2: 0.1
+    - _Speed: 0.1
+    - _TurbulanceDisplace1: 0.01
+    - _TurbulanceDisplace2: 0.01
     m_Colors: []
   m_BuildTextureStacks: []
---- !u!114 &2754973994488568842
+--- !u!114 &3995253242774282832
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

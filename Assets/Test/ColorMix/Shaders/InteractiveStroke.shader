@@ -4,13 +4,16 @@ Shader "Unlit/InteractiveStroke"
     {
         _MainTex ("Texture", 2D) = "white" {}
         _PositionTex("PositionTex", 2D) = "white" {}
+        _ColorTex("ColorTex", 2D) = "white" {}
         _Noise("Noise", float) = 0
         _Offset("Offset", float) = 0
+
     }
     SubShader
     {
         Tags { "RenderType"="Opaque" "Queue"="Transparent" }
         LOD 100
+
         Blend SrcAlpha One
         ZWrite Off
         ZTest Always
@@ -37,7 +40,7 @@ Shader "Unlit/InteractiveStroke"
 
                 col.a *= smoothstep(t1 + 1, t1, i.uv.x);
                 
-                return col * (1 + _Strength) * _LifeDacay;
+                return col * _Strength * _LifeDacay;
             }
 
             ENDCG

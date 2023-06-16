@@ -13,6 +13,8 @@ public class DynamicStrokeGenerator : StrokeGenerator
     public float GetSpeed(float seed) => speed.Lerp(seed);
     public float GetNoiseFrequency(float seed) => noiseFrequency.Lerp(seed);
     public float GetLength(float seed) => length.Lerp(seed);
+    public float GetStrength(float seed) => strength.Lerp(seed);
+
     public (Vector3, Vector3) GetStartEndPoints()
     {
         var offset = Random.insideUnitSphere * this.offset;
@@ -24,7 +26,7 @@ public class DynamicStrokeGenerator : StrokeGenerator
     [Header("Spawn")]
     [SerializeField] private float offset = 0.05f;
     [SerializeField] private Vector2 strokeCount = new Vector2(3, 10);
-    [SerializeField] private Vector2 spawnDuration = new Vector2(1f, 6f);
+    [SerializeField] private Vector2 spawnRate = new Vector2(5f, 10f);
 
     [Header("Life")]
     [SerializeField] private float lifeDecay = 0.8f;
@@ -41,6 +43,7 @@ public class DynamicStrokeGenerator : StrokeGenerator
     [SerializeField] private float fadeIn = 0.2f;
     [SerializeField] private Vector2 length = new Vector2(0.2f, 0.5f);
     [SerializeField] private Vector2 width = new Vector2(0.03f, 0.1f);
+    [SerializeField] private Vector2 strength = new Vector2(0.5f, 0.1f);
 
     private List<DynamicStroke> strokes = new List<DynamicStroke>();
     private Vector3 startPos, endPos;
@@ -56,14 +59,17 @@ public class DynamicStrokeGenerator : StrokeGenerator
         while (true)
         {
             SpawnStrokes();
-            yield return new WaitForSeconds(spawnDuration.GetRandom());
+            yield return new WaitForSeconds(spawnRate.GetRandom());
         }
     }
 
     private void SpawnStrokes()
     {
         startPos = Camera.main.ViewportToWorldPoint(new Vector3(Random.Range(0.1f, 0.9f), Random.Range(0.1f, 0.9f), 1));
-        endPos = startPos + Random.insideUnitSphere * length.GetRandom();
+        var dir = Random.insideUnitSphere;
+        dir.z *= 0.5f;
+        
+        endPos = startPos + dir.normalized * length.GetRandom();
 
         var c = strokeCount.GetRandom();
         for (var i = 0; i < c; i++)

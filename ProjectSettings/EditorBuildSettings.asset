@@ -20,7 +20,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Test/Stripes/Stripes.unity
     guid: c7632ca1b91a9af44b7659a5e2448f2b
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/ColorMix_Depth.unity
     guid: bd68ee33f0797ec46af83ed845d409a2
+  - enabled: 1
+    path: Assets/Scenes/BigBrush.unity
+    guid: ada26d8c4d0f83244a30fb7592248402
   m_configObjects: {}

@@ -14,8 +14,6 @@ public class BigBrushGenerator : MonoBehaviour
     [SerializeField] private Vector2 size = new Vector2(0.5f, 1.5f);
     [SerializeField] private AnimationCurve fadeCurve;
 
-
-
     private List<BigBrush> brushes = new List<BigBrush>();
 
     private void Start()
