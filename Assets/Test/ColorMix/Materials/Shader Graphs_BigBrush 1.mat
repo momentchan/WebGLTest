@@ -52,10 +52,10 @@ Material:
     m_Floats:
     - _BUILTIN_QueueControl: 0
     - _BUILTIN_QueueOffset: 0
-    - _ColorStrength: 19.07
+    - _ColorStrength: 45.5
     - _Count: 200
     - _DistortionFrequency: 0.89
-    - _DistortionIntensity: 8.54
+    - _DistortionIntensity: 4.56
     - _DrawRatio: 0
     - _Fade: 0.1
     - _Height: 1

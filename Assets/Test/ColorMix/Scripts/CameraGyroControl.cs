@@ -39,6 +39,6 @@ public class CameraGyroControl : MonoBehaviour
 #else
         UpdateCameraPos(testAngle);
 #endif
-        cam.transform.LookAt(focusPosition);
+        cam.transform.LookAt(cam.transform.position + Vector3.forward * 5);
     }
 }

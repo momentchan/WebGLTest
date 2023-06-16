@@ -37,14 +37,14 @@ public class DynamicStroke : Stroke
             {
 
             }
-            var r = 1f * (i-currentSegment) / (segment - currentSegment);
+            var r = 1f * (i - currentSegment) / (segment - currentSegment);
             var p = math.lerp(prePos, currentPos, r);
             var v = math.lerp(preVel, vel, r);
 
             rt.SetPixel(i, 0, new Color(p.x, p.y, p.z, 0));
             rt.SetPixel(i, 1, new Color(v.x, v.y, v.z, 0));
         }
-        
+
         vel = Vector3.Lerp(preVel, vel, 0.5f);
         preVel = vel;
 

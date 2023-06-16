@@ -51,11 +51,11 @@ Material:
     - _BUILTIN_QueueOffset: 0
     - _FractalScale1: 1.78
     - _FractalScale2: 1
-    - _FractalSpeed1: 0.05
+    - _FractalSpeed1: 0.01
     - _FractalSpeed2: 0.02
-    - _Intensity: 1.5
+    - _Intensity: 2
     - _Scale: 2
-    - _ScatterRadius1: 0.03
+    - _ScatterRadius1: 0.02
     - _ScatterRadius2: 0.14
     - _Seed: 0
     - _Speed: 0.1

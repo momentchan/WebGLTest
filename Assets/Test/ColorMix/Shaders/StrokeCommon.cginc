@@ -11,6 +11,7 @@ struct v2f
 {
     float2 uv : TEXCOORD0;
     float4 vertex : SV_POSITION;
+    float4 screenPos : TEXCOORD1;
 };
 
 sampler2D _MainTex;
@@ -49,7 +50,7 @@ v2f vert (appdata v)
     float4 lpos = mul(unity_WorldToObject, wpos);
     o.vertex = UnityObjectToClipPos(lpos);
     o.uv = TRANSFORM_TEX(v.uv, _MainTex);
-    
+    o.screenPos = ComputeScreenPos(o.vertex);
     return o;
 }
 
@@ -77,6 +78,7 @@ v2f vert_dynamic(appdata v)
     float4 lpos = mul(unity_WorldToObject, wpos);
     o.vertex = UnityObjectToClipPos(lpos);
     o.uv = TRANSFORM_TEX(v.uv, _MainTex);
+    o.screenPos = ComputeScreenPos(o.vertex);
     return o;
 }
 
