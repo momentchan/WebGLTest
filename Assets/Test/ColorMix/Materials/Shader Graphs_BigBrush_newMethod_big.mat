@@ -20,8 +20,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_BigBrush 1
-  m_Shader: {fileID: -6465566751694194690, guid: afff29f46e458b446a5632fc611ca6f7, type: 3}
+  m_Name: Shader Graphs_BigBrush_newMethod_big
+  m_Shader: {fileID: -6465566751694194690, guid: 499824c3ade64714a9463626e22b1e78, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -52,7 +52,7 @@ Material:
     m_Floats:
     - _BUILTIN_QueueControl: 0
     - _BUILTIN_QueueOffset: 0
-    - _ColorStrength: 153.99
+    - _ColorStrength: 120.3
     - _Count: 200
     - _DistortionFrequency: 0.89
     - _DistortionIntensity: 4.56
@@ -62,9 +62,9 @@ Material:
     - _Hue: -2.73
     - _Life: 0
     - _Ratio: 3.88
-    - _Strength: 0.01
+    - _Strength: -0.4
     - _Time: 0
-    - _Width: 0.2
+    - _Width: 269.8
     m_Colors:
     - _EdgeFade: {r: 0.13, g: 0.12, b: 0, a: 0}
   m_BuildTextureStacks: []

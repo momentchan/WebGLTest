@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8af5c47a2b2b23d438b9b130450f7656, type: 2}
+  - {fileID: 2100000, guid: 004cf5a7b0d865044927f6c5bee30417, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -144,7 +144,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 773a6ca43f5683143b84f768feda88e2, type: 2}
+  - {fileID: 2100000, guid: 2baaae482bec7464aa91bbdabf0a879d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 2776872318294149053}
   - component: {fileID: 2062628345278675504}
   m_Layer: 0
-  m_Name: BigBrush
+  m_Name: BigBrush 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
